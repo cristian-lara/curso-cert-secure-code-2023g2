@@ -14,16 +14,20 @@ constructor(private readonly jwtService: JwtService,
         // verificar las credenciales del usuario
         const usuarioEncontrado = this.usuarioService.buscarUsuario(username, password);
         console.log('usuario encontrado', usuarioEncontrado)
-const esContraseniaValida = true;
+        // cuando no encuentra el usuario me retorna undefined
+// const esContraseniaValida = usuarioEncontrado !== undefined;
+
+//console.log('es contraseña valida', esContraseniaValida)
         // enviar una excepcion si estan mal las credenciales
-if(!esContraseniaValida){
+if(!usuarioEncontrado){
     throw new UnauthorizedException()
 }
 
 
         // crear el payload que necesito
         const payload = {
-            nombre: 'Cristian'
+            nombre: usuarioEncontrado.usuario,
+            codigo: usuarioEncontrado.id
         }
         // enviar el token con el payload
         return {

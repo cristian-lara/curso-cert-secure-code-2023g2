@@ -25,7 +25,9 @@ export class UsuarioService {
     }
 
     buscarUsuario(username:string, password: string){
-        return this.usuarios.find(usuario => (usuario.usuario === username && usuario.password === password))
+        return this.usuarios
+        .find(usuario => 
+            (usuario.usuario === username && usuario.password === password))
     }
 
     getAllUsuarios(){
