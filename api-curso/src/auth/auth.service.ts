@@ -20,7 +20,7 @@ constructor(private readonly jwtService: JwtService,
 //console.log('es contraseña valida', esContraseniaValida)
         // enviar una excepcion si estan mal las credenciales
 if(!usuarioEncontrado){
-    throw new UnauthorizedException()
+    throw new UnauthorizedException('usuario no autorizado')
 }
 
 
