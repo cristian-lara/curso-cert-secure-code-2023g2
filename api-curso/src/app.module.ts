@@ -1,3 +1,4 @@
+import { configuracion } from './configuracion/configuracion';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -13,7 +14,7 @@ import { JwtModule } from '@nestjs/jwt';
   imports: [
     JwtModule.register({
       global: true,
-      secret: 'secreto camabiado',
+      secret: configuracion.auth.secretJwt,
       signOptions: {expiresIn: '60s'}
     })
   ],
