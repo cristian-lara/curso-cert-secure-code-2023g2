@@ -1,5 +1,5 @@
 import { AuthService } from './auth.service';
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 
 @Controller('auth')
 export class AuthController {
@@ -9,9 +9,8 @@ export class AuthController {
     ){}
 
 
-    @Get()
-    login(){
-
-        return this.authService.login()
+    @Get(':usuario/:password')
+    login(@Param('usuario') usuario , @Param('password') password){
+        return this.authService.login(usuario, password)
     }
 }
