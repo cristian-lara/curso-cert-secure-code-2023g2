@@ -1,14 +1,19 @@
+import { UsuarioService } from './../usuario/usuario.service';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
 
-constructor(private readonly jwtService: JwtService){}
+constructor(private readonly jwtService: JwtService,
+    private readonly usuarioService: UsuarioService
+    ){}
 
 
-    login(){
+    login(username: string, password: string){
         // verificar las credenciales del usuario
+        const usuarioEncontrado = this.usuarioService.buscarUsuario(username, password);
+        console.log('usuario encontrado', usuarioEncontrado)
 const esContraseniaValida = true;
         // enviar una excepcion si estan mal las credenciales
 if(!esContraseniaValida){
