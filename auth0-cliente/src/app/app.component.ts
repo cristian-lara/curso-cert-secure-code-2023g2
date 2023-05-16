@@ -8,13 +8,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'auth0-cliente';
 
+  estaLogeado= false;
 
   login(){
     alert('Login listo')
+    this.estaLogeado = true;
   }
 
   logout(){
     alert('logout listo')
+    this.estaLogeado = false;
   }
 
 }
