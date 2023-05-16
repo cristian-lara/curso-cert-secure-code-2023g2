@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   estaLogeado= false;
 
   login(){
-   this.auth0Service.loginWithRedirect();
+   this.auth0Service.loginWithPopup();
   }
 
   logout(){
@@ -38,7 +38,6 @@ export class AppComponent implements OnInit {
   recuperarUsuario(){
 
     this.auth0Service.user$.subscribe(usuario => {
-      alert('usuario recuperado: ' + JSON.stringify(usuario))
       this.usuarioLogeado = usuario;
     })
   }
