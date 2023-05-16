@@ -12,6 +12,13 @@
         </li>
       </ul>
       <span class="navbar-text">
+        <div *ngIf="usuarioLogeado" class="card" style="width: 18rem;">
+          <img src="{{usuarioLogeado.picture}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{usuarioLogeado.name}}</h5>
+            <p class="card-text">{{usuarioLogeado.email}}</p>
+          </div>
+        </div>
        <button *ngIf="!estaLogeado" (click)="login()"
        class="btn btn-primary"
        style="margin-right: 10px;">Login
